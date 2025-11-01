@@ -100,10 +100,10 @@ COPY <<EOF /etc/clickhouse-server/users.xml
 EOF
 
 # Copy binaries and assets from official Docker images
-COPY --from=signoz/signoz-otel-collector:v0.111.42 /signoz-otel-collector /usr/local/bin/otelcol-signoz
-COPY --from=signoz/signoz:v0.87.0 /root/signoz /usr/local/bin/signoz
-COPY --from=signoz/signoz:v0.87.0 /etc/signoz /etc/signoz
-COPY --from=signoz/signoz-schema-migrator:v0.111.42 /signoz-schema-migrator /usr/local/bin/schema-migrator
+COPY --from=signoz/signoz-otel-collector:v0.129.8 /signoz-otel-collector /usr/local/bin/otelcol-signoz
+COPY --from=signoz/signoz:v0.99.0 /root/signoz /usr/local/bin/signoz
+COPY --from=signoz/signoz:v0.99.0 /etc/signoz /etc/signoz
+COPY --from=signoz/signoz-schema-migrator:v0.129.8 /signoz-schema-migrator /usr/local/bin/schema-migrator
 
 # Make binaries executable
 RUN chmod +x /usr/local/bin/otelcol-signoz /usr/local/bin/signoz /usr/local/bin/schema-migrator
